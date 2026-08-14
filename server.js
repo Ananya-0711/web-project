@@ -72,13 +72,14 @@ const express = require('express')
 	//post: add a new user
 	app.post("/api/users", function(req, res)
 	{
-	if(!req.body.name || !req.body.gender || !req.body.image)
-		return res.json({"message" : " name, gender and image is required"})
-	let user = req.body;
-	user.id = newuserid;
-	newuserid++;
-	users.push(user)
-	res.status(200).json({"message" : "added successfully"});
+		// Create a new object with the ID at the top, then spread req.body
+		let user = { id: newuserid, ...req.body };
+
+		newuserid++;
+		users.push(user);
+
+		// Tip: It is good practice to return the created user back to the client
+		res.status(200).json({message: "added successfully",user: user});
 	})
 
 	//put : update an existing user
