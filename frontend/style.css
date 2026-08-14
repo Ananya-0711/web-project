@@ -36,6 +36,7 @@ h1{
 
 body{
  background-color: antiquewhite;
+ margin: 0px;
 }
 
 
@@ -44,4 +45,26 @@ body{
  border-radius: 20px;
  padding: 10px;
  margin-bottom: 10px;
+}
+
+.navbar{
+    text-align:center;
+    border-top:none;
+    border: 0px solid black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.navbar a{
+    margin-right: 15px;
+    color:gray;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    color:black;
+    text-decoration:dotted;
 }
