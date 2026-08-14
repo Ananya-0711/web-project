@@ -2,7 +2,7 @@ alert("Hello From Java Script")
 // alert("hello from js")
 const users = [
  {
-   "name" : "Jonn Doe",
+   "name" : "John Doe",
    "gender" : "Male",
    "image" : "john.png"
  },
