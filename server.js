@@ -70,16 +70,19 @@ const express = require('express')
 
 	var newuserid = users.length+1;
 	//post: add a new user
-	app.post("/api/users",function(req,res){
-		let user = req.body;
-		user.id = newuserid;
-		newuserid++;
-		users.push(users)
-		res.status(200).json({"message":"added successfully"});
+	app.post("/api/users", function(req, res)
+	{
+	if(!req.body.name || !req.body.gender || !req.body.image)
+		return res.json({"message" : " name, gender and image is required"})
+	let user = req.body;
+	user.id = newuserid;
+	newuserid++;
+	users.push(user)
+	res.status(200).json({"message" : "added successfully"});
 	})
 
 	//put : update an existing user
-	app.put("/api/users",function(req,res){
+	app.put("/api/users/:id",function(req,res){
 		var userid = getUserById(req.params.id);
 
 		if(userid == -1)
